@@ -1,0 +1,106 @@
+.home {
+  background-color: black;
+  color: white;
+  height: 100%;
+}
+
+body {
+  color: white;
+}
+body .wrap {
+  width: 100%;
+  height: 100%;
+}
+body .wrap .main_page {
+  text-align: center;
+  padding-top: 150px;
+  padding-bottom: 350px;
+}
+body .wrap .main_page .title {
+  font-weight: bold;
+  font-size: 50px;
+}
+body .wrap .main_page .info_box {
+  margin: auto;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  padding: 10px;
+  width: 73%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  border: 1px solid white;
+  font-size: 25px;
+}
+body .wrap .main_page .info_box .job {
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+}
+body .wrap .main_page .info_box .job div {
+  margin: 10px;
+}
+body .wrap .main_page .info_box .job .job_select {
+  padding: 10px;
+}
+body .wrap .main_page .info_box .job .job_select:hover {
+  background-color: white;
+  color: black;
+  border-radius: 10px;
+  transition: all 3s;
+  cursor: pointer;
+}
+body .wrap .main_page .info_box .budget {
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+}
+body .wrap .main_page .info_box .budget div {
+  margin: 10px;
+}
+body .wrap .main_page .info_box .budget .budget_input {
+  padding: 10px;
+}
+body .wrap .main_page .info_box .budget .budget_input input:hover {
+  cursor: pointer;
+}
+body .wrap .main_page .info_box .budget span {
+  margin-left: 5px;
+  vertical-align: middle;
+}
+body .wrap .main_page .info_box .workspace {
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+}
+body .wrap .main_page .info_box .workspace div {
+  margin: 10px;
+}
+body .wrap .main_page .info_box .workspace .workspace_select {
+  padding: 10px;
+}
+body .wrap .main_page .info_box .workspace .workspace_select:hover {
+  background-color: white;
+  color: black;
+  border-radius: 10px;
+  transition: all 3s;
+  cursor: pointer;
+}
+body .wrap .main_page button {
+  background-color: black;
+  color: white;
+  border: 1px solid white;
+  font-weight: bold;
+  padding: 15px;
+  align-items: center;
+}
+
+/*# sourceMappingURL=request.css.map */

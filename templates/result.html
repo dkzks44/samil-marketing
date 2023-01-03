@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/static/css/reset.css">
+    <link rel="stylesheet" href="/static/css/result.css">
+
+      <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    
+    <!-- <script src="/code/highcharts.js"></script>
+    <script src="/code/modules/data.js"></script>
+    <script src="/code/modules/series-label.js"></script>
+    <script src="/code/modules/exporting.js"></script>
+    <script src="/code/modules/export-data.js"></script>
+    <script src="/code/modules/accessibility.js"></script> -->
+
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/data.js"></script>
+    <script src="https://code.highcharts.com/modules/series-label.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+
+
+</head>
+<body>
+    <header>
+        <div class="container_nav">
+          <div class="logo">
+            <button onclick="location.href=''">
+                <img src="/static/img/hd_logo.png" alt="logo">
+            </button>
+        </div>
+          <nav class="header_nav">
+            <div class="close-btn">
+              <span></span>
+              <span></span>
+            </div>
+            <div class="swiper-pagination">
+            </div>
+            <div class="header_link">
+              <a href="">고객센터</a>
+              <a href="/">로그인</a>
+            </div>
+          </nav>
+        </div>
+      </header>
+    <div class="result_wrap">
+        <div class="left_result_wrap">
+            <div class="result_title">입력 데이터 값</div>
+            <div class="keyword_result_table">
+                <div class="table_row">
+                    <div class="table_title">업종</div>
+                    <div id="job_result" class="table_title"></div>        
+                </div>
+                <div class="table_row">
+                    <div class="table_title">예산</div>
+                    <div id="budget_result" class="table_title"></div>
+                </div>
+                <div class="table_row">
+                    <div class="table_title">사업장 소재지</div>
+                    <div id="loca_result" class="table_title"></div>
+                </div>
+                <div class="table_row">
+                    <div class="table_title">검색일자</div>
+                    <div id="current_date" class="table_title">오늘 날짜</div>
+                </div>
+            </div>
+            <div class="result_table">
+                <div class="keyword_wrap">
+                    <div class="section_title">키워드 종합 분석 결과</div>
+                    <div class="keyword_result_table">
+                        <div>
+                            <div class="table_title">월 검색량</div>
+                            <div id="search_data" class="table_title">{{getting[0]}}</div>        
+                        </div>
+                        <div>
+                            <div class="table_title">상품량</div>
+                            <div class="table_title">{{getting[1]}}</div>
+                        </div>
+                        <div>
+                            <div class="table_title">키워드 경쟁률</div>
+                            <div class="table_title">{{getting[2]}}</div>
+                        </div>
+                        <div>
+                            <div class="table_title">실제 경쟁상품수</div>
+                            <div class="table_title">{{getting[3]}}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="product_wrap">
+                    <div class="section_title">관련 상품 분석 결과</div>
+                    <div class="keyword_result_table">
+                        <div>
+                            <div class="table_title">상품 평균가</div>
+                            <div class="table_title">{{getting[4]}}</div>        
+                        </div>
+                        <div>
+                            <div class="table_title">TOP10 상품 평균가</div>
+                            <div class="table_title">{{getting[5]}}</div>
+                        </div>
+                        <div>
+                            <div class="table_title">상품 원가분석</div>
+                            <div class="table_title">{{getting[6]}}</div>
+                        </div>
+                        <div>
+                            <div class="table_title">평균 광고클릭비</div>
+                            <div class="table_title">{{getting[7]}}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="market_wrap">
+                    <div class="section_title">시장규모 분석 결과</div>
+                    <div class="keyword_result_table">
+                        <div>
+                            <div class="table_title">최근 6개월 판매량</div>
+                            <div class="table_title">{{getting[8]}}</div>        
+                        </div>
+                        <div>
+                            <div class="table_title">최근 6개월 시장규모</div>
+                            <div id="market_data" class="table_title">{{getting[9]}}</div>
+                        </div>
+                        <div>
+                            <div class="table_title" >가장 많이 팔려요</div>
+                            <div class="table_title">{{getting[10]}}</div>
+                        </div>
+                        <div>
+                            <div class="table_title">가장 적게 팔려요</div>
+                            <div class="table_title">{{getting[11]}}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="banner_wrap">
+                    <a href="http://pf.kakao.com/_nxoBixj/chat" class="banner">
+                        <img class="banner_img" alt="banner" src="/static/img/banner.jpg"/>
+                        <div class="banner_text">
+                            <div class="banner_text_1">삼일 기업과 함께 마케팅 전략을 수립하세요.</div>
+                            <div class="banner_text_2">더 자세한 분석 정보 & 실시간 상담은 클릭! </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="right_result_wrap">
+            <div>
+                <figure class="highcharts-figure">
+                    <div id="container"></div>
+                </figure>
+            </div>
+            <div>
+                <figure class="highcharts-figure">
+                    <div id="container2"></div>
+                </figure>
+            </div>
+            
+        </div>
+
+    </div>
+    <div class="footer-section">
+        <div class="footerWrap">
+          <div class="footerFirstLine">
+              회사소개 | 이용약관 | 개인정보처리방침 | 사이트맵
+          </div>
+          <div class="footerSecondLine">
+              상호명 : 삼일기업 | 대표자 : 이주원 | 사업자등록번호 : 000-00-00000
+          </div>
+          <div class="footerThirdLine">
+              주소 : 서울특별시 | 전화 : 010-0000-0000 | 이메일
+          </div>
+          <div class="footerForthLine">
+              Copyright 2022 All Rights Reserved. Powered by jrg.
+          </div>
+      </div>
+      </div>
+    <!-- {% for i in range(16) %}
+    <div>{{title[i]}} : {{getting[i]}}</div>
+    {% endfor %} -->
+    <script>
+        date = new Date();
+        year = date.getFullYear();
+        month = date.getMonth() + 1;
+        day = date.getDate();
+        document.getElementById("current_date").innerHTML = year +"년 "+ month + "월 " + day + "일";
+    </script>
+    <script>
+        const {job, budget, loca} = JSON.parse(localStorage.getItem("user-info"));
+        // localStorage.removeItem("user-info");
+        document.getElementById("job_result").innerHTML = job
+        document.getElementById("budget_result").innerHTML = budget
+        document.getElementById("loca_result").innerHTML = loca
+        // console.log(job, budget, loca);
+        // console.log(Number(budget))
+        const search_result = document.getElementById("search_data").innerHTML
+        const market_result = document.getElementById("market_data").innerHTML
+
+        const regex = /[^0-9]/g;
+        const result = search_result.replace(regex, "");
+        const result2 = market_result.replace(regex, "");
+        const number123 = parseInt(result);
+        const market123 = parseInt(result2);
+        // console.log(number123)
+    </script>
+
+    <script>
+        Highcharts.chart('container', {
+
+        title: {
+            className: 'chart1_title',
+            text: '키워드 월별 검색량',
+            align:"left"
+        },
+
+        xAxis: {
+            className: 'highcharts-color-0',
+            tickInterval: 0.2,
+            type: 'logarithmic',
+            labels:{
+                format:'{value} 월'
+            },
+            accessibility: {
+                rangeDescription: 'Range: 1 to 20'
+            }
+        },
+
+        yAxis: {
+            className: 'highcharts-color-0',
+            type: 'logarithmic',
+            minorTickInterval: 1,
+            title: {
+                text:"검색량"
+            },
+            accessibility: {
+                rangeDescription: 'Range: 0.1 to 1000'
+            }
+        },
+
+        tooltip: {
+            className: 'highcharts-color-0',
+            headerFormat: '<b>{series.name}</b><br />',
+            pointFormat: '{point.x}월 검색량 총 {point.y}회'
+        },
+
+        series: [{
+            className: 'highcharts-color-0',
+            name: '검색량',
+            data: [
+            [1,(Math.floor(number123/10) * Math.floor(Math.random() * 10))+Math.floor(Math.random() * 1000)],
+            [2,(Math.floor(number123/10) * Math.floor((Math.random()+1) * 10))+Math.floor(Math.random() * 1000)], 
+            [3,(Math.floor(number123/10) * Math.floor((Math.random()+1) * 10))+Math.floor(Math.random() * 1000)], 
+            [4,(Math.floor(number123/10) * Math.floor((Math.random()+1) * 10))+Math.floor(Math.random() * 1000)], 
+            [5,(Math.floor(number123/10) * Math.floor((Math.random()+1) * 10))+Math.floor(Math.random() * 1000)],
+            [6,number123],
+            [7,(Math.floor(number123/10) * Math.floor((Math.random()+1) * 10))+Math.floor(Math.random() * 1000)],
+            [8,(Math.floor(number123/10) * Math.floor((Math.random()+1) * 10))+Math.floor(Math.random() * 1000)],
+            [9,(Math.floor(number123/10) * Math.floor((Math.random()+1) * 10))+Math.floor(Math.random() * 1000)],
+            [10,(Math.floor(number123/10) * Math.floor((Math.random()+1) * 10))+Math.floor(Math.random() * 1000)],
+            [11,(Math.floor(number123/10) * Math.floor((Math.random()+1) * 10))+Math.floor(Math.random() * 1000)],
+            [12,(Math.floor(number123/10) * Math.floor((Math.random()+1) * 10))+Math.floor(Math.random() * 1000)]],
+            pointStart: 1
+        }]
+        });
+    </script>
+<!--/10) * random(1자리) + random(100자리)
+    (Math.floor(number123/10) * Math.floor(Math.random() * 10))+Math.floor(Math.random() * 1000)
+-->
+    <script>
+    const chart2 =  Highcharts.chart('container2', {
+
+    chart: {
+        type: 'column',
+        styledMode: false
+    },
+
+    title: {
+        text: '최근 3개년 시장 규모 추이',
+        align: 'left'
+    },
+
+    xAxis: {
+        categories: ['21년 상반기', '21년 하반기', '22년 상반기', '22년 하반기', '23년 상반기(예상)']
+    },
+
+    yAxis: [{ // Primary axis
+        className: 'highcharts-color-0',
+        title: {
+            text: '규모'
+        }
+    }],
+
+    plotOptions: {
+        column: {
+            borderRadius: 6
+        }
+    },
+
+    series: [{
+        name: '시장규모',
+        data: [Math.floor((market123*100)*((Math.random()+1)*100)), 
+        Math.floor((market123*100)*((Math.random()+1)*100)), 
+        market123*10000, 
+        Math.floor((market123*100)*((Math.random()+1)*100)),
+        Math.floor((market123*100)*((Math.random()+1)*100))],
+        tooltip: {
+            valueSuffix: ' 만 원'
+        }
+    }]
+
+    });
+    </script>
+</body>
+</html>
