@@ -23,7 +23,7 @@ body {
     font-size: 13px;
 }
 .result_wrap{
-    padding:100px 50px;
+    padding:100px 0;
     padding-bottom: 20px;
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -70,6 +70,11 @@ body {
     margin-top:5px;
     padding:5px;
 }
+
+.long_text {
+    font-size: 15px;
+}
+
 
 .banner_wrap {
     display: flex;
