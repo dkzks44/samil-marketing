@@ -404,6 +404,7 @@ html,
     position: relative;
     transform: translateY(30%);
     height: 110px;
+    padding-top:100px;
     /* padding: 20px; */
   }
   .footerWrap div {
